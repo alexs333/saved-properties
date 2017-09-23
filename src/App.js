@@ -26,14 +26,20 @@ class App extends Component {
       <Container>
         <Column>
           {results.map(propertyData => (
-            <Card key={propertyData.id} {...{ propertyData, handler: this.clickHandler(save, propertyData.id) }} />)
-          )}
+            <Card
+              key={propertyData.id}
+              {...{ propertyData, handler: this.clickHandler(save, propertyData.id) }}
+            />
+          ))}
         </Column>
 
         <Column>
           {saved.map(propertyData => (
-            <Card key={propertyData.id} {...{ propertyData, handler: this.clickHandler(remove, propertyData.id), remove: true }} />)
-          )}
+            <Card
+              key={propertyData.id}
+              {...{ propertyData, handler: this.clickHandler(remove, propertyData.id), remove: true }}
+            />
+          ))}
         </Column>
       </Container>
     );
