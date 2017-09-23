@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import './App.css';
 
 import Card from './components/card/Card';
 import { save, remove } from './actions';
@@ -16,17 +15,25 @@ const Column = styled.div`
 `;
 
 class App extends Component {
+  clickHandler(action, id) {
+    return () => action(id);
+  }
+
   render() {
-    const { results, saved } = this.props;
+    const { results, saved, save, remove } = this.props;
 
     return (
       <Container>
         <Column>
-          {results.map(propertyData => <Card {...{ propertyData }} />)}
+          {results.map(propertyData => (
+            <Card key={propertyData.id} {...{ propertyData, handler: this.clickHandler(save, propertyData.id) }} />)
+          )}
         </Column>
 
         <Column>
-          {saved.map(propertyData => <Card {...{ propertyData }} />)}
+          {saved.map(propertyData => (
+            <Card key={propertyData.id} {...{ propertyData, handler: this.clickHandler(remove, propertyData.id), remove: true }} />)
+          )}
         </Column>
       </Container>
     );
