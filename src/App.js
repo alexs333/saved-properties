@@ -1,21 +1,46 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { connect } from 'react-redux';
+import styled from 'styled-components';
 import './App.css';
+
+import Card from './components/card/Card';
+import { save, remove } from './actions';
+
+const Container = styled.div`
+  display: flex;
+  justify-content: left;
+`;
+
+const Column = styled.div`
+  flex: 1;
+`;
 
 class App extends Component {
   render() {
+    const { results, saved } = this.props;
+
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <Container>
+        <Column>
+          {results.map(propertyData => <Card {...{ propertyData }} />)}
+        </Column>
+
+        <Column>
+          {saved.map(propertyData => <Card {...{ propertyData }} />)}
+        </Column>
+      </Container>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  results: state.results,
+  saved: state.saved
+});
+
+const mapDispatchToProps = dispatch => ({
+  save: id => dispatch(save(id)),
+  remove: id => dispatch(remove(id))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
