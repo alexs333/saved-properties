@@ -14,7 +14,7 @@ const StyledCard = styled.div`
   box-shadow: 2px 2px 2px ${colors.lightGrey};
   position: relative;
 
-  $:hover {
+  &:hover {
     :before {
       content: '';
       position: absolute;
