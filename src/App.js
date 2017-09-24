@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
+import { Container, Row, Col } from 'react-grid-system';
 
 import Card from './components/card/Card';
+import Header from './components/header/Header';
 import { save, remove } from './actions';
 
-const Container = styled.div`
-  display: flex;
-  justify-content: left;
-`;
+import { colors } from './config/settings';
 
-const Column = styled.div`
-  flex: 1;
+const StyledContainer = styled(Container)`
+  padding-top: 20px;
+  background-color: ${colors.white};
+  text-align: center;
 `;
 
 class App extends Component {
@@ -23,25 +24,30 @@ class App extends Component {
     const { results, saved, save, remove } = this.props;
 
     return (
-      <Container>
-        <Column>
-          {results.map(propertyData => (
-            <Card
-              key={propertyData.id}
-              {...{ propertyData, handler: this.clickHandler(save, propertyData.id) }}
-            />
-          ))}
-        </Column>
+      <div>
+        <Header>Property Manager</Header>
+        <StyledContainer>
+          <Row>
+            <Col sm={6} xs={12}>
+              {results.map(propertyData => (
+                <Card
+                  key={propertyData.id}
+                  {...{ propertyData, handler: this.clickHandler(save, propertyData.id) }}
+                />
+              ))}
+            </Col>
 
-        <Column>
-          {saved.map(propertyData => (
-            <Card
-              key={propertyData.id}
-              {...{ propertyData, handler: this.clickHandler(remove, propertyData.id), remove: true }}
-            />
-          ))}
-        </Column>
-      </Container>
+            <Col sm={6} xs={12}>
+              {saved.map(propertyData => (
+                <Card
+                  key={propertyData.id}
+                  {...{ propertyData, handler: this.clickHandler(remove, propertyData.id), remove: true }}
+                />
+              ))}
+            </Col>
+          </Row>
+        </StyledContainer>
+      </div>
     );
   }
 }

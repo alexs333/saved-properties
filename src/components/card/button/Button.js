@@ -1,9 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { colors } from '../../../config/settings';
+
 const StyledButton = styled.button`
   color: white;
-  background-color: ${props => props.primary ?  '#5085E2' : '#c4214c'};
+  background-color: ${props => props.primary ?  colors.blue : colors.red};
   padding: 15px 32px;
   border: none;
   display: none;

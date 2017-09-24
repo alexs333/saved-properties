@@ -3,15 +3,15 @@ import styled from 'styled-components';
 
 import CardHeader from './cardHeader/CardHeader';
 import Button from './button/Button';
+import { colors } from '../../config/settings';
 
 const StyledCard = styled.div`
-  width: 300px;
-  border: 1px solid grey;
+  border: 1px solid ${colors.lightGrey};
   border-radius: 4px;
   margin-bottom: 15px;
-  box-shadow: 2px 2px 2px grey;
+  box-shadow: 2px 2px 2px ${colors.lightGrey};
   position: relative;
-  :hover {
+    :hover {
     :before {
       content: '';
       position: absolute;
@@ -25,16 +25,16 @@ const StyledCard = styled.div`
 `;
 
 const StyledImg = styled.img`
-  width: 300px;
+  width: 100%;
   height: auto;
 `;
 
 const Price = styled.div`
   font-size: 2rem;
-  padding: 1rem;
-  color: grey;
+  padding: 1.5rem;
+  color: ${colors.darkGrey  };
   text-align: center;
-`
+`;
 
 const Card = ({ propertyData, handler, remove }) => {
   const { agency, mainImage, price } = propertyData;
