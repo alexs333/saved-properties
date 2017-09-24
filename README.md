@@ -1,7 +1,13 @@
 # Saved Properties Manager
 
 REA frontend developer challenge - "Property manager".  This project was bootstrapped
-with [create-react-app](https://github.com/facebookincubator/create-react-app) and [brackets text editor](http://brackets.io/). 
+with [create-react-app](https://github.com/facebookincubator/create-react-app) and .
+
+## Tech stack
+* [react](https://facebook.github.io/react/) - JavaSript UI library
+* [redux](https://github.com/reactjs/redux) - state container
+* [create-react-app](https://github.com/facebookincubator/create-react-app) - utility to bootstrap react apps
+* [brackets](http://brackets.io/) - text editor
 
 ## Installation
 
@@ -23,10 +29,10 @@ yarn start
 ## Testing
 To execute the test suite, run the following:
 ```
-yarn start
+yarn test
 ```
 
-### Roadmap
+## Roadmap
 * improve responsiveness
 * improve transition animations
 * eject the project from create-react-app
