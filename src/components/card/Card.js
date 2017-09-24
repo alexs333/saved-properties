@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import TiDocumentAdd from 'react-icons/lib/ti/document-add';
+import TiDocumentDelete from 'react-icons/lib/ti/document-delete';
 
 import CardHeader from './cardHeader/CardHeader';
 import Button from './button/Button';
@@ -11,7 +13,8 @@ const StyledCard = styled.div`
   margin-bottom: 15px;
   box-shadow: 2px 2px 2px ${colors.lightGrey};
   position: relative;
-    :hover {
+
+  $:hover {
     :before {
       content: '';
       position: absolute;
@@ -44,8 +47,8 @@ const Card = ({ propertyData, handler, remove }) => {
       <CardHeader logoSrc={agency.logo} brandColor={agency.brandingColors.primary} />
       <StyledImg src={mainImage} />
       <Price>{price}</Price>
-      {!remove && <Button primary handler={handler}>+ Save Property</Button>}
-      {remove && <Button handler={handler}>- Remove Property</Button>}
+      {!remove && <Button primary handler={handler}><TiDocumentAdd /> Save Property</Button>}
+      {remove && <Button handler={handler}><TiDocumentDelete /> Remove Property</Button>}
     </StyledCard>
   );
 };

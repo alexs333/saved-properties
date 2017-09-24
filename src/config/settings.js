@@ -5,3 +5,7 @@ export const colors = {
   blue: '#5085E2',
   red: '#c4214c',
 }
+
+export const media = {
+  sm: '576px'
+}

@@ -6,10 +6,12 @@ import { colors } from '../../../config/settings';
 const StyledButton = styled.button`
   color: white;
   background-color: ${props => props.primary ?  colors.blue : colors.red};
-  padding: 15px 32px;
+  padding: 1.25rem 2.5rem;
+  font-size: 1.25rem;
   border: none;
-  display: none;
+  opacity: 0;
   font-weight: bold;
+  transition: all .3s ease .15s;
 `;
 
 const Container = styled.div`
@@ -24,7 +26,7 @@ const Container = styled.div`
   width: 100%;
 
   &:hover > ${StyledButton} {
-   display: block;
+    opacity: 1;
   }
 `;
 

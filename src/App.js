@@ -6,13 +6,22 @@ import { Container, Row, Col } from 'react-grid-system';
 import Card from './components/card/Card';
 import Header from './components/header/Header';
 import { save, remove } from './actions';
+import TiHomeOutline from 'react-icons/lib/ti/home-outline';
 
-import { colors } from './config/settings';
+import { colors, media } from './config/settings';
 
 const StyledContainer = styled(Container)`
   padding-top: 20px;
   background-color: ${colors.white};
-  text-align: center;
+`;
+
+const StyledHomeIcon = styled(TiHomeOutline)`
+  font-size: 5rem;
+  display: none;
+
+  @media (min-width: ${media.sm}) {
+    display: inline-block;
+  }
 `;
 
 class App extends Component {
@@ -25,10 +34,11 @@ class App extends Component {
 
     return (
       <div>
-        <Header>Property Manager</Header>
+        <Header><StyledHomeIcon /> Property Manager</Header>
         <StyledContainer>
           <Row>
             <Col sm={6} xs={12}>
+              <h4>Results List</h4>
               {results.map(propertyData => (
                 <Card
                   key={propertyData.id}
@@ -38,6 +48,7 @@ class App extends Component {
             </Col>
 
             <Col sm={6} xs={12}>
+              <h4>Saved Properties</h4>
               {saved.map(propertyData => (
                 <Card
                   key={propertyData.id}

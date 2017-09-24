@@ -20,11 +20,18 @@ with [create-react-app](https://github.com/facebookincubator/create-react-app) a
 npm install -g yarn
 ```
 
-3) Run the application:
+5) Install dependencies
+```
+yarn Install
+```
+
+4) Run the application:
 
 ```
 yarn start
 ```
+
+5) If the application will fail to auto-start, point your browser to http://localhost:3000
 
 ## Testing
 To execute the test suite, run the following:
@@ -34,5 +41,8 @@ yarn test
 
 ## Roadmap
 * improve responsiveness
+* add linting
+* add more tests
+* improve slow network handling
 * improve transition animations
 * eject the project from create-react-app
